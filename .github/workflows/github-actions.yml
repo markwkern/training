@@ -16,5 +16,5 @@ jobs:
           ls ${{ github.workspace }}
       - name: run svr-info
         run: |
-          ${{ github.workspace }}/svr-info/svr-info
+          ${{ github.workspace }}/svr-info/tools/orchestrator
       - run: echo "🍏 This job's status is ${{ job.status }}."
