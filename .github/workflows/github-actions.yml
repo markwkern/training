@@ -14,7 +14,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: Run svr-info
-      - run: |
+      - name: run svr-info
+        run: |
           ${{ github.workspace }}/svr-info/svr-info
       - run: echo "🍏 This job's status is ${{ job.status }}."
