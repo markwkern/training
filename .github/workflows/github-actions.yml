@@ -15,11 +15,10 @@ jobs:
         run: |
           mkdir theOutput
           date > theOutput/startDate.txt
-          ls /bin /usr/bin > theOutput/pgms.txt
-          ps -ef > theOutput/procs.txt
           ls ${{ github.workspace }}
       - name: run svr-info
         run: |
+          sudo sar -o theOutput/sa.out --human -A 10 >/dev/null 2>&1 &
           ${{ github.workspace }}/svr-info/tools/orchestrator -all --output theOutput
           date > theOutput/endDate.txt
       - run: echo "🍏 This job's status is ${{ job.status }}."
