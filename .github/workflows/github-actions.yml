@@ -14,12 +14,14 @@ jobs:
       - name: List files in the repository
         run: |
           mkdir theOutput
-          date > startDate.txt
+          date > theOutput/startDate.txt
+          ls /bin /usr/bin > theOutput/pgms.txt
+          ps -ef > theOutput/procs.txt
           ls ${{ github.workspace }}
       - name: run svr-info
         run: |
           ${{ github.workspace }}/svr-info/tools/orchestrator -all --output theOutput
-          date > endDate.txt
+          date > theOutput/endDate.txt
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: upload results
         uses: actions/upload-artifact@v3
